@@ -9,6 +9,24 @@ pipeline {
         SANITY_TESTS_RAN = false
     }
 
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+                failure {
+                    script {
+                        currentBuild.result = 'FAILURE'
+                    }
+                }
+            }
+        }
 
         stage("Deploy to Dev") {
             when {
@@ -49,7 +67,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/sailesh123kumar/OpenCartAutomationFrameWork.git'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/regression_chrome.xml"
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/resources/testrunners/regression_chrome.xml"
                 }
             }
             post {
@@ -110,7 +128,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/sailesh123kumar/OpenCartAutomationFrameWork.git'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/sanity_test.xml"
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/resources/testrunners/sanity_test.xml"
                 }
                 script {
                     env.SANITY_TESTS_RAN = true
