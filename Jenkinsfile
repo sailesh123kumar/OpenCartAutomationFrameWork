@@ -20,11 +20,6 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
-                failure {
-                    script {
-                        currentBuild.result = 'FAILURE'
-                    }
-                }
             }
         }
 
