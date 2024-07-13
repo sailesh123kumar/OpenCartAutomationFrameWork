@@ -135,7 +135,10 @@
 					<forkCount>3</forkCount>
 					<reuseForks>true</reuseForks>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/resources/testrunners/sanity_test.xml</suiteXmlFile>
+<!--						<suiteXmlFile>src/resources/testrunners/sanity_test.xml</suiteXmlFile>-->
+							<suiteXmlFile>$(suiteXmlFile)</suiteXmlFile>
+
+
 					</suiteXmlFiles>
 
 					<argLine>
