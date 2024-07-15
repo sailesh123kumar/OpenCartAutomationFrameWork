@@ -1,0 +1,38 @@
+Prerequisites
+Install Docker
+Jenkins server should be up and running
+
+Command Prompt Commands for Docker
+-To Verify the installation 
+
+docker -v
+docker-compose -v
+
+-To check - No of containers present in your docker
+docker ps -a    ---> a - all
+
+-To check - No of images present in your docker
+docker images
+
+-Download latest grid yml file from github selenium and save it in any of the location
+-Go to the location in command prompt and enter below commands to start and create images, containers in the docker
+
+docker-compose up -d    ---> d - detached mode ---> It will run like jenkins so we run it in detached mode to give further commands in command prompt
+
+
+If we get any error related to authorization and authentication on above , use the below commands and enter credentials
+docker login
+Enter Username: *****
+Enter Password: *****
+
+-To shutdown the docker
+docker-compose down
+
+-To scale up the docker
+docker compose up -d --scale chrome=3 --scale firefox=3 --scale edge=3
+
+-To scale down the docker
+docker compose up -d --scale chrome=2 --scale firefox=2 --scale edge=2
+
+
+
