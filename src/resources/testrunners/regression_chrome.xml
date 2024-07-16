@@ -38,7 +38,7 @@
 		<test name="Registration Page Test">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.qa.opencart.tests.LoginPageTest" />
+			<class name="com.qa.opencart.tests.RegistrationPageTest" />
 		</classes>
 	</test>
 
