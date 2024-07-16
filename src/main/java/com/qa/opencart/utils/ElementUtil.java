@@ -59,21 +59,21 @@ public class ElementUtil {
 		}
 	}
 
-	@Step("Entering the Value{1} in the text field using locator : {0}")
+	@Step("Entering the Value - {1} in the text field using locator : {0}")
 	public void doSendKeys(By locator, String value) {
 		nullcheck(value);
 		getElement(locator).clear();
 		getElement(locator).sendKeys(value);
 	}
 	
-	@Step("Entering the Value{1} in the text field using locator : {0} and waiting for element with : {2} secs")
+	@Step("Entering the Value - {1} in the text field using locator : {0} and waiting for element with : {2} secs")
 	public void doSendKeys(By locator, String value, int timeOut) {
 		nullcheck(value);
 		waitForElementVisible(locator, timeOut).clear();;
 		waitForElementVisible(locator, timeOut).sendKeys(value);
 	}
 	
-	@Step("Entering the Value{1} in the text field using locator : [0]")
+	@Step("Entering the Value - {1} in the text field using locator : [0]")
 	public void doSendKeys(By locator, CharSequence... value) {
 		getElement(locator).clear();
 		getElement(locator).sendKeys(value);
