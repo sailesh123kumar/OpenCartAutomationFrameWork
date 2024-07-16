@@ -30,6 +30,10 @@ public class OptionsManager {
 			System.out.println("====RUNNING TEST ON INCOGNITO MODE====");
 			co.addArguments("--incognito");
 		}
+		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+			System.out.println("====RUNNING TEST ON REMOTE BROWSER====");
+			co.setCapability("browserName", "chrome");
+		}
 		
 		return co;
 	}
@@ -46,6 +50,11 @@ public class OptionsManager {
 			System.out.println("====RUNNING TEST ON INCOGNITO MODE====");
 			fo.addArguments("--incognito");
 		}
+		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+			System.out.println("====RUNNING TEST ON REMOTE BROWSER====");
+			fo.setCapability("browserName", "firefox");
+		}
+		
 		return fo;
 	}
 	
@@ -59,6 +68,10 @@ public class OptionsManager {
 		if(Boolean.parseBoolean(prop.getProperty("incognito"))) {
 			System.out.println("====RUNNING TEST ON INCOGNITO MODE====");
 			eo.addArguments("--inPrivate");
+		}
+		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+			System.out.println("====RUNNING TEST ON REMOTE BROWSER====");
+			eo.setCapability("browserName", "edge");
 		}
 		
 		return eo;
