@@ -17,6 +17,8 @@ import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegistrationPage;
 import com.qa.opencart.pages.SearchResultsPage;
 
+import io.qameta.allure.Step;
+
 public class BaseTest {
 	
 	
@@ -30,15 +32,20 @@ public class BaseTest {
 	protected RegistrationPage registrationPage;
 	protected SoftAssert softassert;
 	
-	@Parameters({"browser"})
+	@Step("setup for the test initializing browser : {0}")
+	@Parameters({"browser","browserversion","testname"})
 	@BeforeTest
 	//public void setUp(@Optional("firefox") String browserName) { //This will make firefox as default browser
-	public void setUp(@Optional String browserName) {
+	public void setUp(@Optional String browserName , @Optional String browserVersion , @Optional String testName) {
 		df = new DriverFactory();
 		prop = df.initProp();
 		
 		if(browserName!=null) {
 			prop.setProperty("browser", browserName);
+			prop.setProperty("browserversion", browserVersion);
+			prop.setProperty("testname", testName);
+			
+			System.out.println("Browser:"+browserName +"=BrowserVersion:"+browserVersion+"=TestName:"+testName);
 		}
 		
 		driver = df.initDriver(prop);

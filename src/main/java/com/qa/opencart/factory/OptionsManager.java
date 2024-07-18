@@ -1,5 +1,7 @@
 package com.qa.opencart.factory;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -31,8 +33,16 @@ public class OptionsManager {
 			co.addArguments("--incognito");
 		}
 		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
-			System.out.println("====RUNNING TEST ON REMOTE BROWSER====");
 			co.setCapability("browserName", "chrome");
+			co.setBrowserVersion(prop.getProperty("browserversion").trim());
+			
+			Map<String , Object> selenoidOptions = new HashMap<String , Object>();
+			selenoidOptions.put("screenResolution", "1280x1024x24");
+			selenoidOptions.put("enableVNC", true);
+			selenoidOptions.put("name", prop.getProperty("testname"));
+			co.setCapability("selenoid:options", selenoidOptions);
+			
+			
 		}
 		
 		return co;
@@ -51,8 +61,14 @@ public class OptionsManager {
 			fo.addArguments("--incognito");
 		}
 		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
-			System.out.println("====RUNNING TEST ON REMOTE BROWSER====");
 			fo.setCapability("browserName", "firefox");
+			fo.setBrowserVersion(prop.getProperty("browserversion").trim());
+			
+			Map<String , Object> selenoidOptions = new HashMap<String , Object>();
+			selenoidOptions.put("screenResolution", "1280x1024x24");
+			selenoidOptions.put("enableVNC", true);
+			selenoidOptions.put("name", prop.getProperty("testname"));
+			fo.setCapability("selenoid:options", selenoidOptions);
 		}
 		
 		return fo;
