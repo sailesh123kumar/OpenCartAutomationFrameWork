@@ -22,16 +22,18 @@
 		</classes>
 	</test>
 
-	<!--	<test name="Account Page Test">-->
-	<!--		<parameter name="browser" value="chrome"></parameter>-->
-	<!--		<classes>-->
-	<!--			<class name="com.qa.opencart.tests.AccountsPageTest" />-->
-	<!--		</classes>-->
-	<!--	</test>-->
+	<test name="Account Page Test">
+		<parameter name="browser" value="firefox"></parameter>
+		<parameter name="browserversion" value="124.0"></parameter>
+		<parameter name="testname" value="Account Page Test"></parameter>
+		<classes>
+			<class name="com.qa.opencart.tests.AccountsPageTest" />
+		</classes>
+	</test>
 
 	<test name="Product info Page Test">
 		<parameter name="browser" value="chrome"></parameter>
-		<parameter name="browserversion" value="125.0"></parameter>
+		<parameter name="browserversion" value="124.0"></parameter>
 		<parameter name="testname" value="Product info Page Test"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoPageTest" />
@@ -39,12 +41,14 @@
 	</test>
 
 
-	<!--		<test name="Registration Page Test">-->
-	<!--		<parameter name="browser" value="firefox"></parameter>-->
-	<!--		<classes>-->
-	<!--			<class name="com.qa.opencart.tests.RegistrationPageTest" />-->
-	<!--		</classes>-->
-	<!--	</test>-->
+	<test name="Registration Page Test">
+		<parameter name="browser" value="firefox"></parameter>
+		<parameter name="browserversion" value="124.0"></parameter>
+		<parameter name="testname" value="Registration Page Test"></parameter>
+		<classes>
+			<class name="com.qa.opencart.tests.RegistrationPageTest" />
+		</classes>
+	</test>
 
 
 </suite> 
