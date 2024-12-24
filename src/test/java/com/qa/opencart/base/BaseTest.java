@@ -42,10 +42,10 @@ public class BaseTest {
 		
 		if(browserName!=null) {
 			prop.setProperty("browser", browserName);
-			prop.setProperty("browserversion", browserVersion);
-			prop.setProperty("testname", testName);
+//			prop.setProperty("browserversion", browserVersion);
+//			prop.setProperty("testname", testName);
 			
-			System.out.println("Browser:"+browserName +"=BrowserVersion:"+browserVersion+"=TestName:"+testName);
+				
 		}
 		
 		driver = df.initDriver(prop);

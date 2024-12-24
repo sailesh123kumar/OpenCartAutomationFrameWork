@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>AutomationPOMFramework</name>
+	<name>Maven</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -18,13 +18,21 @@
 		<extentreports-version>5.0.8</extentreports-version>
 		<aspectj.version>1.9.19</aspectj.version>
 	</properties>
+	
+	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://admin:admin123@localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.21.0</version>
+			<version>4.25.0</version>
 		</dependency>
 
 		<dependency>
@@ -135,8 +143,8 @@
 					<forkCount>3</forkCount>
 					<reuseForks>true</reuseForks>
 					<suiteXmlFiles>
-<!--					<suiteXmlFile>src/resources/testrunners/sanity_test.xml</suiteXmlFile>-->
-						<suiteXmlFile>$(suiteXmlFile)</suiteXmlFile>
+					<suiteXmlFile>src/resources/testrunners/sanity_test.xml</suiteXmlFile>
+<!--						<suiteXmlFile>$(suiteXmlFile)</suiteXmlFile>-->
 
 
 					</suiteXmlFiles>
@@ -157,6 +165,36 @@
 				</dependencies>
 
 
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
 			</plugin>
 
 

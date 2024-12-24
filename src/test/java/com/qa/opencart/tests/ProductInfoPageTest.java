@@ -1,4 +1,4 @@
-package com.qa.opencart.tests;
+ 	package com.qa.opencart.tests;
 
 import java.util.Map;
 
@@ -75,6 +75,9 @@ public class ProductInfoPageTest extends BaseTest {
 		Object[][] testData = ExcelUtil.getTestData(AppConstants.PRODUCT_IMAGES_SHEET);
 		return testData;
 	}
+	
+	
+	
 	
 
 	//getProductDataWithImagesfromsheet if we use this method convert imagecount as string
