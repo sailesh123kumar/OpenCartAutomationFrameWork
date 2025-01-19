@@ -25,4 +25,25 @@ public class Retry implements IRetryAnalyzer {
 	}
 
 
+  //  private int retryCount = 0; // Tracks the current retry count
+ //   private static final int MAX_RETRIES = 3; // Maximum number of retries
+
+    /**
+     * Determines whether a failed test should be retried.
+     * 
+     * @param iTestResult The result of the test method execution.
+     * @return true if the test should be retried, false otherwise.
+     */
+ //   @Override
+  //  public boolean retry(ITestResult iTestResult) {
+   //     if (retryCount < MAX_RETRIES) {
+     //       retryCount++;
+       //     return true; // Retry the test
+  //      }
+ //       return false; // Do not retry
+ //   }
+
+
+	
+
 }
